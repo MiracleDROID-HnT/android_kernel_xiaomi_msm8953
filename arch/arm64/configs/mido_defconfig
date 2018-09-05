@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 3.18.120 Kernel Configuration
+# Linux/arm64 3.18.121 Kernel Configuration
 #
 CONFIG_ARM64=y
 CONFIG_64BIT=y
@@ -487,6 +487,9 @@ CONFIG_BINFMT_SCRIPT=y
 # CONFIG_BINFMT_MISC is not set
 CONFIG_COREDUMP=y
 CONFIG_COMPAT=y
+CONFIG_KUSER_HELPERS=y
+CONFIG_COMPAT_VDSO=y
+CONFIG_CROSS_COMPILE_ARM32=""
 
 #
 # Power management options
