@@ -390,7 +390,7 @@ LINUXINCLUDE    := \
 
 KBUILD_CPPFLAGS := -D__KERNEL__
 
-DTC_POLLY_FLAGS	:= -mllvm -polly \
+POLLY_FLAGS	:= -mllvm -polly \
 		   -mllvm -polly-run-dce \
 		   -mllvm -polly-run-inliner \
 		   -mllvm -polly-opt-fusion=max \
@@ -402,7 +402,7 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common -fshort-wchar \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
-		   -std=gnu89 $(call cc-option,-fno-PIE) $(DTC_POLLY_FLAGS)
+		   -std=gnu89 $(call cc-option,-fno-PIE)
 
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
@@ -655,7 +655,12 @@ ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= $(call cc-option,-Oz,-Os) $(call cc-disable-warning,maybe-uninitialized,)
 else
 ifeq ($(cc-name),clang)
+polly-flag := -polly
+ifeq ($(call cc-option, $(polly-flag)),)
 KBUILD_CFLAGS	+= -O3
+else
+KBUILD_CFLAGS	+= -O3 $(POLLY_FLAGS)
+endif
 else
 KBUILD_CFLAGS	+= -O2 -finline-functions -Wno-maybe-uninitialized
 endif
