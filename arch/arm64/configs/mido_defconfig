@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 3.18.139 Kernel Configuration
+# Linux/arm64 3.18.140 Kernel Configuration
 #
 CONFIG_ARM64=y
 CONFIG_64BIT=y
@@ -4092,6 +4092,7 @@ CONFIG_PANIC_ON_RECURSIVE_FAULT=y
 # CONFIG_PANIC_ON_RT_THROTTLING is not set
 # CONFIG_SCHEDSTATS is not set
 # CONFIG_SCHED_STACK_END_CHECK is not set
+# CONFIG_TIMER_STATS is not set
 # CONFIG_DEBUG_PREEMPT is not set
 
 #
