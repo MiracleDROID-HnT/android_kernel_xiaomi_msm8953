@@ -25,7 +25,6 @@
 #include <linux/async.h>
 #include <linux/pm_runtime.h>
 #include <linux/pinctrl/devinfo.h>
-#include <linux/initramfs.h>
 
 #include "base.h"
 #include "power/power.h"
@@ -111,8 +110,8 @@ static void deferred_probe_work_func(struct work_struct *work)
 	mutex_unlock(&deferred_probe_mutex);
 
 	/* Keep going if probe deferral is needed after late_initcall */
-	if (driver_deferred_probe_enable && !in_recovery &&
-		!list_empty(&deferred_probe_pending_list))
+	if (driver_deferred_probe_enable &&
+	    !list_empty(&deferred_probe_pending_list))
 		driver_deferred_probe_trigger();
 }
 static DECLARE_WORK(deferred_probe_work, deferred_probe_work_func);
