@@ -525,6 +525,10 @@
 	status = "disabled";
 };
 
+&adv_vreg {
+	status = "disabled";
+};
+
 &firmware {
 	android {
 		fstab {
