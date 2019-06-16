@@ -61,13 +61,17 @@
 };
 
 &pm8953_gpios {
+	status = "okay";
+
 	gpio@c700 {
-		status = "ok";
+		status = "okay";
 		qcom,master-en = <0>;
 	};
 };
 
 &pmi8950_gpios {
+	status = "okay";
+
 	gpio@c000 {
 		qcom,mode = <1>;
 		qcom,pull = <4>;

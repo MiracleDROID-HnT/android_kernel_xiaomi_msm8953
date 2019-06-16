@@ -29,6 +29,15 @@
 		};
 
 		pmi8950_mpps: mpps {
+			spmi-dev-container;
+			compatible = "qcom,qpnp-pin";
+			gpio-controller;
+			#gpio-cells = <2>;
+			#address-cells = <1>;
+			#size-cells = <1>;
+			label = "pmi8950-mpp";
+			status = "okay";
+
 			mpp@a000 {
 				qcom,mode = <4>; /* AIN input */
 				qcom,invert = <1>; /* Enable MPP */
